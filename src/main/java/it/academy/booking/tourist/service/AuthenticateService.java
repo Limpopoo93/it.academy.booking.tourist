@@ -7,8 +7,16 @@ import java.util.Optional;
 
 public interface AuthenticateService {
     Authenticate save(Authenticate authenticate);
+
     Optional<Authenticate> findById(Long id);
+
     void delete(Authenticate authenticate);
+
     List<Authenticate> findAll();
+
     Authenticate saveAndFlush(Authenticate authenticate);
+
+    Authenticate findByLoginByPassword(String login, String password);
+
+    Authenticate findByLogin(String login);
 }

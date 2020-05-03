@@ -5,6 +5,7 @@ import it.academy.booking.tourist.request.Car;
 import it.academy.booking.tourist.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,24 +14,27 @@ import java.util.Optional;
 public class CarServiceImpl implements CarService {
     @Autowired
     private CarRepository carRepository;
-
-    public Car save(Car car){
+    @Override
+    @Transactional
+    public Car save(Car car) {
         return carRepository.save(car);
     }
-
-    public Optional<Car> findById(Long id){
+    @Override
+    public Optional<Car> findById(Long id) {
         return carRepository.findById(id);
     }
-
-    public void delete(Car car){
+    @Override
+    @Transactional
+    public void delete(Car car) {
         carRepository.delete(car);
     }
-
-    public List<Car> findAll(){
+    @Override
+    public List<Car> findAll() {
         return carRepository.findAll();
     }
-
-    public Car saveAndFlush(Car car){
+    @Override
+    @Transactional
+    public Car saveAndFlush(Car car) {
         return carRepository.saveAndFlush(car);
     }
 }

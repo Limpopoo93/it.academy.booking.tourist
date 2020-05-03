@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AuthenticateRepository extends JpaRepository<Authenticate, Long> {
+    Authenticate findByLoginAndPassword(String login, String password);
+
+    Authenticate findByLogin(String login);
 }

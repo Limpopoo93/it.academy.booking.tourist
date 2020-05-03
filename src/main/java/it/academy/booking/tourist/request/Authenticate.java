@@ -32,9 +32,6 @@ public class Authenticate {
     @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "id_passport", nullable = false)
     private Passport passport;
-    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "id_personal_info", nullable = false)
-    private PersonalInformation personalInfo;
     @JsonManagedReference
     @OneToMany(mappedBy = "authenticate", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Role> roles = Collections.emptySet();

@@ -5,6 +5,7 @@ import it.academy.booking.tourist.request.Town;
 import it.academy.booking.tourist.service.TownService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,24 +14,27 @@ import java.util.Optional;
 public class TownServiceImpl implements TownService {
     @Autowired
     private TownRepository townRepository;
-
-    public Town save(Town town){
+    @Override
+    @Transactional
+    public Town save(Town town) {
         return townRepository.save(town);
     }
-
-    public Optional<Town> findById(Long id){
+    @Override
+    public Optional<Town> findById(Long id) {
         return townRepository.findById(id);
     }
-
-    public void delete(Town town){
+    @Override
+    @Transactional
+    public void delete(Town town) {
         townRepository.delete(town);
     }
-
-    public List<Town> findAll(){
+    @Override
+    public List<Town> findAll() {
         return townRepository.findAll();
     }
-
-    public Town saveAndFlush(Town town){
+    @Override
+    @Transactional
+    public Town saveAndFlush(Town town) {
         return townRepository.saveAndFlush(town);
     }
 }

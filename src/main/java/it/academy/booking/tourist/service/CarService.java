@@ -7,8 +7,12 @@ import java.util.Optional;
 
 public interface CarService {
     Car save(Car car);
+
     Optional<Car> findById(Long id);
+
     void delete(Car car);
+
     List<Car> findAll();
+
     Car saveAndFlush(Car car);
 }

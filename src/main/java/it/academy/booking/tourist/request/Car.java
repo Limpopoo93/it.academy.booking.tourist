@@ -17,10 +17,12 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Enumerated(EnumType.STRING)
     @Column(name = "type_car")
-    private String type;
+    private TypeCar typeCar;
+    @Enumerated(EnumType.STRING)
     @Column(name = "class_car")
-    private String classCar;
+    private ClassCar classCar;
     @Column(name = "name_car")
     private String name;
     @Column(name = "make_car")
@@ -33,12 +35,14 @@ public class Car {
     private String color;
     @Column(name = "col_bag")
     private Integer colBag;
+    @Enumerated(EnumType.STRING)
     @Column(name = "type_transmission")
-    private String typeTransmission;
+    private TypeTransmission typeTransmission;
     @Column(name = "type_engine")
     private String typeEngine;
+    @Enumerated(EnumType.STRING)
     @Column(name = "type_fuel")
-    private String typeFuel;
+    private TypeFuel typeFuel;
     @Column(name = "date_realise")
     private Date dateRealise;
     @Column

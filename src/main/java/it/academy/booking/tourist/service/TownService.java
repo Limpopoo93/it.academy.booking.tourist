@@ -7,8 +7,12 @@ import java.util.Optional;
 
 public interface TownService {
     Town save(Town town);
+
     Optional<Town> findById(Long id);
+
     void delete(Town town);
+
     List<Town> findAll();
+
     Town saveAndFlush(Town town);
 }

@@ -5,6 +5,7 @@ import it.academy.booking.tourist.request.Price;
 import it.academy.booking.tourist.service.PriceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,24 +14,27 @@ import java.util.Optional;
 public class PriceServiceImpl implements PriceService {
     @Autowired
     private PriceRepository priceRepository;
-
-    public Price save(Price price){
+    @Override
+    @Transactional
+    public Price save(Price price) {
         return priceRepository.save(price);
     }
-
-    public Optional<Price> findById(Long id){
+    @Override
+    public Optional<Price> findById(Long id) {
         return priceRepository.findById(id);
     }
-
-    public void delete(Price price){
+    @Override
+    @Transactional
+    public void delete(Price price) {
         priceRepository.delete(price);
     }
-
-    public List<Price> findAll(){
+    @Override
+    public List<Price> findAll() {
         return priceRepository.findAll();
     }
-
-    public Price saveAndFlush(Price price){
+    @Override
+    @Transactional
+    public Price saveAndFlush(Price price) {
         return priceRepository.saveAndFlush(price);
     }
 }

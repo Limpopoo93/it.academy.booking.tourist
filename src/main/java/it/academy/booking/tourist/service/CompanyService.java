@@ -7,8 +7,12 @@ import java.util.Optional;
 
 public interface CompanyService {
     Company save(Company company);
+
     Optional<Company> findById(Long id);
+
     void delete(Company company);
+
     List<Company> findAll();
+
     Company saveAndFlush(Company company);
 }

@@ -7,8 +7,12 @@ import java.util.Optional;
 
 public interface CheckCarService {
     CheckCar save(CheckCar checkCar);
+
     Optional<CheckCar> findById(Long id);
+
     void delete(CheckCar checkCar);
+
     List<CheckCar> findAll();
+
     CheckCar saveAndFlush(CheckCar checkCar);
 }

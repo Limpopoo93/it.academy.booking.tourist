@@ -5,6 +5,7 @@ import it.academy.booking.tourist.request.Country;
 import it.academy.booking.tourist.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,24 +14,27 @@ import java.util.Optional;
 public class CountryServiceImpl implements CountryService {
     @Autowired
     private CountryRepository countryRepository;
-
-    public Country save(Country country){
+    @Override
+    @Transactional
+    public Country save(Country country) {
         return countryRepository.save(country);
     }
-
-    public Optional<Country> findById(Long id){
+    @Override
+    public Optional<Country> findById(Long id) {
         return countryRepository.findById(id);
     }
-
-    public void delete(Country country){
+    @Override
+    @Transactional
+    public void delete(Country country) {
         countryRepository.delete(country);
     }
-
-    public List<Country> findAll(){
+    @Override
+    public List<Country> findAll() {
         return countryRepository.findAll();
     }
-
-    public Country saveAndFlush(Country country){
+    @Override
+    @Transactional
+    public Country saveAndFlush(Country country) {
         return countryRepository.saveAndFlush(country);
     }
 }
