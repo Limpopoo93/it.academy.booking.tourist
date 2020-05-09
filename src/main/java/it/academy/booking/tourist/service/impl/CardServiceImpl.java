@@ -37,4 +37,14 @@ public class CardServiceImpl implements CardService {
     public Card saveAndFlush(Card card) {
         return cardRepository.saveAndFlush(card);
     }
+
+    @Override
+    public Card findByAuthenticateId(Long id){
+        return cardRepository.findByAuthenticateId(id);
+    }
+
+    @Override
+    public Card findByKeyNumberAndUsd(Integer keyNumber, Integer usd){
+        return cardRepository.findByKeyNumberAndUsd(keyNumber, usd);
+    }
 }

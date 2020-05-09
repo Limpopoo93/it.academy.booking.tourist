@@ -15,4 +15,8 @@ public interface CardService {
     List<Card> findAll();
 
     Card saveAndFlush(Card card);
+
+    Card findByAuthenticateId(Long id);
+
+    Card findByKeyNumberAndUsd(Integer keyNumber, Integer usd);
 }

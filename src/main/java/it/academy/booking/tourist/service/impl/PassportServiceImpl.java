@@ -37,4 +37,9 @@ public class PassportServiceImpl implements PassportService {
     public Passport saveAndFlush(Passport passport) {
         return passportRepository.saveAndFlush(passport);
     }
+    @Override
+    public Passport findByAuthenticateId(Long id){
+        return passportRepository.findByAuthenticateId(id);
+    }
 }
+

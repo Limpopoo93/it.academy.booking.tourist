@@ -33,6 +33,9 @@ public class Passport {
     private String numberPassport;
     @Column(name = "indeficial_passport")
     private String indeficialPassport;
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "id_authenticate", nullable = false)
+    private Authenticate authenticate;
     @Column
     private Boolean delete;
 }

@@ -45,4 +45,9 @@ public class AuthenticateServiceImpl implements AuthenticateService {
     public Authenticate findByLogin(String login){
         return authenticateRepository.findByLogin(login);
     }
+
+    @Override
+    public List<Authenticate> findByDelete(Boolean delete){
+        return authenticateRepository.findByDelete(delete);
+    }
 }

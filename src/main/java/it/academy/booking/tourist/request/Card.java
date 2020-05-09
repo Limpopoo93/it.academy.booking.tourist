@@ -29,6 +29,8 @@ public class Card {
     private String name;
     @Column
     private String surname;
+    @Column
+    private Boolean delete;
     @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "id_authenticate", nullable = false)
     private Authenticate authenticate;

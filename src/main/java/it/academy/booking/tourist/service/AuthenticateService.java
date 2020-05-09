@@ -19,4 +19,6 @@ public interface AuthenticateService {
     Authenticate findByLoginByPassword(String login, String password);
 
     Authenticate findByLogin(String login);
+
+    List<Authenticate> findByDelete(Boolean delete);
 }

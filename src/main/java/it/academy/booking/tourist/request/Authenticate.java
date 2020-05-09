@@ -29,9 +29,6 @@ public class Authenticate {
     private Boolean acess;
     @Column
     private Boolean delete;
-    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "id_passport", nullable = false)
-    private Passport passport;
     @JsonManagedReference
     @OneToMany(mappedBy = "authenticate", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Role> roles = Collections.emptySet();

@@ -1,5 +1,6 @@
 package it.academy.booking.tourist.service;
 
+import it.academy.booking.tourist.request.Authenticate;
 import it.academy.booking.tourist.request.Passport;
 
 import java.util.List;
@@ -15,4 +16,8 @@ public interface PassportService {
     List<Passport> findAll();
 
     Passport saveAndFlush(Passport passport);
+
+    Passport findByAuthenticateId(Long id);
+
+    List<Authenticate> findByDelete(Boolean delete);
 }
