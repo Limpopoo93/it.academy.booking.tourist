@@ -12,5 +12,8 @@ public interface AuthenticateRepository extends JpaRepository<Authenticate, Long
 
     Authenticate findByLogin(String login);
 
-    List<Authenticate> findByDelete(Boolean delete);
+    List<Authenticate> findByDeleteAndRoles(Boolean delete, String role);
+
+    List<Authenticate> findByAcess(Boolean acess);
+
 }

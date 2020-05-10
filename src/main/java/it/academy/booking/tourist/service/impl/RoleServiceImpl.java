@@ -8,30 +8,34 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleRepository roleRepository;
+
     @Override
     @Transactional
     public Role save(Role role) {
         return roleRepository.save(role);
     }
+
     @Override
-    public Optional<Role> findById(Long id) {
-        return roleRepository.findById(id);
+    public Role findById(Long id) {
+        return roleRepository.findById(id).orElse(null);
     }
+
     @Override
     @Transactional
     public void delete(Role role) {
         roleRepository.delete(role);
     }
+
     @Override
     public List<Role> findAll() {
         return roleRepository.findAll();
     }
+
     @Override
     @Transactional
     public Role saveAndFlush(Role role) {

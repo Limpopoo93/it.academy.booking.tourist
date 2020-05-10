@@ -47,4 +47,7 @@ public class Car {
     private Date dateRealise;
     @Column
     private Boolean delete;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "id_company", nullable = false)
+    private Company company;
 }

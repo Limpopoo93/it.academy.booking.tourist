@@ -3,12 +3,11 @@ package it.academy.booking.tourist.service;
 import it.academy.booking.tourist.request.Authenticate;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface AuthenticateService {
     Authenticate save(Authenticate authenticate);
 
-    Optional<Authenticate> findById(Long id);
+    Authenticate findById(Long id);
 
     void delete(Authenticate authenticate);
 
@@ -20,5 +19,7 @@ public interface AuthenticateService {
 
     Authenticate findByLogin(String login);
 
-    List<Authenticate> findByDelete(Boolean delete);
+    List<Authenticate> findByDeleteAndRoles(Boolean delete, String role);
+
+    List<Authenticate> findByAcess(Boolean acess);
 }

@@ -8,38 +8,44 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PassportServiceImpl implements PassportService {
     @Autowired
     private PassportRepository passportRepository;
+
     @Override
     @Transactional
     public Passport save(Passport passport) {
         return passportRepository.save(passport);
     }
+
     @Override
-    public Optional<Passport> findById(Long id) {
-        return passportRepository.findById(id);
+    public Passport findById(Long id) {
+        return passportRepository.findById(id).orElse(null);
     }
+
     @Override
     @Transactional
     public void delete(Passport passport) {
         passportRepository.delete(passport);
     }
+
     @Override
     public List<Passport> findAll() {
         return passportRepository.findAll();
     }
+
     @Override
     @Transactional
     public Passport saveAndFlush(Passport passport) {
         return passportRepository.saveAndFlush(passport);
     }
+
     @Override
-    public Passport findByAuthenticateId(Long id){
+    public Passport findByAuthenticateId(Long id) {
         return passportRepository.findByAuthenticateId(id);
     }
+
 }
 

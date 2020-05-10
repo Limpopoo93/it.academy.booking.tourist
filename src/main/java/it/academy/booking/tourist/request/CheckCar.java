@@ -24,8 +24,8 @@ public class CheckCar {
     private String price;
     private Boolean delete;
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "id_passport", nullable = false)
-    private Passport passport;
+    @JoinColumn(name = "id_authenticate", nullable = false)
+    private Authenticate authenticate;
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "id_car", nullable = false)
     private Car car;

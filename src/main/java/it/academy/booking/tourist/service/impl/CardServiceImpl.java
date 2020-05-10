@@ -8,30 +8,34 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CardServiceImpl implements CardService {
     @Autowired
     private CardRepository cardRepository;
+
     @Override
     @Transactional
     public Card save(Card card) {
         return cardRepository.save(card);
     }
+
     @Override
-    public Optional<Card> findById(Long id) {
-        return cardRepository.findById(id);
+    public Card findById(Long id) {
+        return cardRepository.findById(id).orElse(null);
     }
+
     @Override
     @Transactional
     public void delete(Card card) {
         cardRepository.delete(card);
     }
+
     @Override
     public List<Card> findAll() {
         return cardRepository.findAll();
     }
+
     @Override
     @Transactional
     public Card saveAndFlush(Card card) {
@@ -39,12 +43,12 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
-    public Card findByAuthenticateId(Long id){
+    public Card findByAuthenticateId(Long id) {
         return cardRepository.findByAuthenticateId(id);
     }
 
     @Override
-    public Card findByKeyNumberAndUsd(Integer keyNumber, Integer usd){
+    public Card findByKeyNumberAndUsd(Integer keyNumber, Integer usd) {
         return cardRepository.findByKeyNumberAndUsd(keyNumber, usd);
     }
 }

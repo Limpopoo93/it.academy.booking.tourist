@@ -1,9 +1,9 @@
 package it.academy.booking.tourist.controller;
 
-import it.academy.booking.tourist.repository.AuthenticateRepository;
 import it.academy.booking.tourist.request.Authenticate;
-import it.academy.booking.tourist.request.Role;
+import it.academy.booking.tourist.request.CheckCar;
 import it.academy.booking.tourist.service.impl.AuthenticateServiceImpl;
+import it.academy.booking.tourist.service.impl.CheckCarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class UserController {
     @Autowired
     private AuthenticateServiceImpl authenticateService;
+
+    @Autowired
+    private CheckCarServiceImpl checkCarService;
 
     //для старта
     @GetMapping("/")
@@ -71,7 +75,7 @@ public class UserController {
             authenticate.setDelete(true);
             authenticate.setActive(true);
             // при регистрации сделать добавление роли в базу данных.
-           // authenticate.setRoles();
+            // authenticate.setRoles();
             authenticateService.save(authenticate);
             session.setAttribute("authenticate", authenticate);
             return "index";
@@ -80,4 +84,12 @@ public class UserController {
         return "main";
     }
 
+    //список забронированных машин для юзера
+    @GetMapping("/listAllCheckCar")
+    public String findByAllCheckCar(Model model, HttpSession session) {
+        Authenticate authenticate = (Authenticate) session.getAttribute("authenticate");
+        List<CheckCar> checkCars = checkCarService.findByAuthenticateId(authenticate.getId());
+        model.addAttribute("checkCars", checkCars);
+        return "listAllCheckCar";
+    }
 }
