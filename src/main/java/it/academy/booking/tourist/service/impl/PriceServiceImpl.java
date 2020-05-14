@@ -41,4 +41,9 @@ public class PriceServiceImpl implements PriceService {
     public Price saveAndFlush(Price price) {
         return priceRepository.saveAndFlush(price);
     }
+
+    @Override
+    public Price findByCarId(Long id){
+        return priceRepository.findByCarId(id);
+    }
 }

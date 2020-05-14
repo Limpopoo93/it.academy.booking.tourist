@@ -51,4 +51,9 @@ public class CarServiceImpl implements CarService {
     public List<Car> findByCompanyId(Long id) {
         return carRepository.findByCompanyId(id);
     }
+
+    @Override
+    public List<Car> findByCompanyTownNameTownAndCompanyTownCountryNameCountry(String town, String country){
+        return carRepository.findByCompanyTownNameTownAndCompanyTownCountryNameCountry(town, country);
+    }
 }

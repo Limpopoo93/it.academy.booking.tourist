@@ -1,9 +1,6 @@
 package it.academy.booking.tourist.controller;
 
-import it.academy.booking.tourist.request.Authenticate;
-import it.academy.booking.tourist.request.Car;
-import it.academy.booking.tourist.request.Company;
-import it.academy.booking.tourist.request.Town;
+import it.academy.booking.tourist.request.*;
 import it.academy.booking.tourist.service.impl.AuthenticateServiceImpl;
 import it.academy.booking.tourist.service.impl.CarServiceImpl;
 import it.academy.booking.tourist.service.impl.CompanyServiceImpl;
@@ -112,7 +109,7 @@ public class CompanyController {
     @PostMapping("/companyDelete")
     public String deleteCompany(@Valid Company company, BindingResult bindingResult, HttpSession session) {
         Authenticate authenticate = (Authenticate) session.getAttribute("authenticate");
-        List<Company> companies = companyService.findByAuthenticateId(authenticate.getId());
+        List<Company> companies = companyService.findByAuthenticateIdAndDelete(authenticate.getId(), true);
         for (Company companyResult : companies) {
             companyResult.setDelete(false);
             companyService.saveAndFlush(companyResult);
@@ -133,11 +130,20 @@ public class CompanyController {
 
     @PostMapping("/searchCompanyByName")
     public String searchCompanyByNameForm(@Valid Company company, BindingResult bindingResult, HttpSession session, Model model) {
-        Company companyReult = companyService.findByName(company.getName());
-        if (companyReult == null) {
+        Company companyResult = companyService.findByName(company.getName());
+        if (companyResult == null) {
             return "index";
         }
-        model.addAttribute("company", companyReult);
+        model.addAttribute("company", companyResult);
         return "searchCompanyByNameForm";
+    }
+
+    //список всех городов для конкретного юзера (юзер компании )
+    @GetMapping("/listAllCountry")
+    public String findByAllTown(Model model, HttpSession session) {
+        Authenticate authenticate = (Authenticate) session.getAttribute("authenticate");
+        List<Company> companies = companyService.findByAuthenticateIdAndDelete(authenticate.getId(), true);
+        model.addAttribute("companies", companies);
+        return "listAllCountryUser";
     }
 }

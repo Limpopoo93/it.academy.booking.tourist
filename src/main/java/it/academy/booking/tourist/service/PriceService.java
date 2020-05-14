@@ -14,4 +14,6 @@ public interface PriceService {
     List<Price> findAll();
 
     Price saveAndFlush(Price price);
+
+    Price findByCarId(Long id);
 }

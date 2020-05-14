@@ -19,7 +19,7 @@ public interface CompanyService {
 
     List<Company> findByTownId(Long id);
 
-    List<Company> findByAuthenticateId(Long id);
+    List<Company> findByAuthenticateIdAndDelete(Long id, Boolean delete);
 
     Company findByName(String nameCompany);
 }

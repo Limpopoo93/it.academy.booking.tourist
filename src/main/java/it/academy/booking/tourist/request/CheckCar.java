@@ -21,7 +21,7 @@ public class CheckCar {
     private Date dateCheck;
     @Column(name = "date_return")
     private Date dateReturn;
-    private String price;
+    private Long price;
     private Boolean delete;
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "id_authenticate", nullable = false)

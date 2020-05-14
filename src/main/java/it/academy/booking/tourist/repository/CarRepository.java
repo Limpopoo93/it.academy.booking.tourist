@@ -11,4 +11,6 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     List<Car> findByDeleteAndCompanyId(Boolean delete, Long id);
 
     List<Car> findByCompanyId(Long id);
+
+    List<Car> findByCompanyTownNameTownAndCompanyTownCountryNameCountry(String town, String country);
 }

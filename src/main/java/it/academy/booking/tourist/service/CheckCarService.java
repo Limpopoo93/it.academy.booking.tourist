@@ -1,7 +1,9 @@
 package it.academy.booking.tourist.service;
 
 import it.academy.booking.tourist.request.CheckCar;
+import org.springframework.data.repository.query.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface CheckCarService {
@@ -18,4 +20,6 @@ public interface CheckCarService {
     List<CheckCar> findByAuthenticateId(Long id);
 
     CheckCar findByCarId(Long id);
+
+    List<CheckCar> findByBusyDate(Date dateCheck, Date dateReturn);
 }

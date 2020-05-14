@@ -53,8 +53,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<Company> findByAuthenticateId(Long id) {
-        return companyRepository.findByAuthenticateId(id);
+    public List<Company> findByAuthenticateIdAndDelete(Long id, Boolean delete) {
+        return companyRepository.findByAuthenticateIdAndDelete(id, delete);
     }
 
     @Override
