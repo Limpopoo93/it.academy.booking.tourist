@@ -1,6 +1,6 @@
 package it.academy.booking.tourist.service;
 
-import it.academy.booking.tourist.request.Town;
+import it.academy.booking.tourist.model.Town;
 
 import java.util.List;
 
@@ -15,9 +15,4 @@ public interface TownService {
 
     Town saveAndFlush(Town town);
 
-    List<Town> findByDelete(Boolean delete);
-
-    List<Town> findByNameTown(String town);
-
-    List<Town> findByCountryId(Long id);
 }

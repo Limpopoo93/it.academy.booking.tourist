@@ -1,6 +1,6 @@
 package it.academy.booking.tourist.service;
 
-import it.academy.booking.tourist.request.Country;
+import it.academy.booking.tourist.model.Country;
 
 import java.util.List;
 
@@ -15,5 +15,4 @@ public interface CountryService {
 
     Country saveAndFlush(Country country);
 
-    List<Country> findByDelete(Boolean delete);
 }

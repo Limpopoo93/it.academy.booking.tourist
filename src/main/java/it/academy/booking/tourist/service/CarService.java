@@ -1,6 +1,6 @@
 package it.academy.booking.tourist.service;
 
-import it.academy.booking.tourist.request.Car;
+import it.academy.booking.tourist.model.Car;
 
 import java.util.List;
 
@@ -15,9 +15,4 @@ public interface CarService {
 
     Car saveAndFlush(Car car);
 
-    List<Car> findByDeleteAndCompanyId(Boolean delete, Long id);
-
-    List<Car> findByCompanyId(Long id);
-
-    List<Car> findByCompanyTownNameTownAndCompanyTownCountryNameCountry(String town, String country);
 }

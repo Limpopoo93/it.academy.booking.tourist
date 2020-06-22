@@ -1,6 +1,6 @@
 package it.academy.booking.tourist.service;
 
-import it.academy.booking.tourist.request.Photo;
+import it.academy.booking.tourist.model.Photo;
 
 import java.util.List;
 
@@ -14,4 +14,5 @@ public interface PhotoService {
     List<Photo> findAll();
 
     Photo saveAndFlush(Photo photo);
+
 }

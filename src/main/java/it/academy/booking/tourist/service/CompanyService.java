@@ -1,6 +1,6 @@
 package it.academy.booking.tourist.service;
 
-import it.academy.booking.tourist.request.Company;
+import it.academy.booking.tourist.model.Company;
 
 import java.util.List;
 
@@ -15,11 +15,4 @@ public interface CompanyService {
 
     Company saveAndFlush(Company company);
 
-    List<Company> findByDelete(Boolean delete);
-
-    List<Company> findByTownId(Long id);
-
-    List<Company> findByAuthenticateIdAndDelete(Long id, Boolean delete);
-
-    Company findByName(String nameCompany);
 }

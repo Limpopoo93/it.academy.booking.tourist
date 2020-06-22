@@ -1,6 +1,6 @@
 package it.academy.booking.tourist.service;
 
-import it.academy.booking.tourist.request.Message;
+import it.academy.booking.tourist.model.Message;
 
 import java.util.List;
 
@@ -15,5 +15,4 @@ public interface MessageService {
 
     Message saveAndFlush(Message message);
 
-    List<Message> findByDelete(Boolean delete);
 }

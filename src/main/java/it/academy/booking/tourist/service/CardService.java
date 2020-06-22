@@ -1,6 +1,6 @@
 package it.academy.booking.tourist.service;
 
-import it.academy.booking.tourist.request.Card;
+import it.academy.booking.tourist.model.Card;
 
 import java.util.List;
 
@@ -15,7 +15,4 @@ public interface CardService {
 
     Card saveAndFlush(Card card);
 
-    Card findByAuthenticateId(Long id);
-
-    Card findByKeyNumberAndUsd(Integer keyNumber, Integer usd);
 }

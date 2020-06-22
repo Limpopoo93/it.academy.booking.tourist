@@ -1,6 +1,6 @@
 package it.academy.booking.tourist.service;
 
-import it.academy.booking.tourist.request.Role;
+import it.academy.booking.tourist.model.Role;
 
 import java.util.List;
 
@@ -14,4 +14,5 @@ public interface RoleService {
     List<Role> findAll();
 
     Role saveAndFlush(Role role);
+
 }

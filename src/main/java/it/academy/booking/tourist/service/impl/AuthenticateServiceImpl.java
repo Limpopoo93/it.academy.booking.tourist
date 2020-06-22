@@ -1,7 +1,7 @@
 package it.academy.booking.tourist.service.impl;
 
+import it.academy.booking.tourist.model.Authenticate;
 import it.academy.booking.tourist.repository.AuthenticateRepository;
-import it.academy.booking.tourist.request.Authenticate;
 import it.academy.booking.tourist.service.AuthenticateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,23 +42,4 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         return authenticateRepository.saveAndFlush(authenticate);
     }
 
-    @Override
-    public Authenticate findByLoginByPassword(String login, String password) {
-        return authenticateRepository.findByLoginAndPassword(login, password);
-    }
-
-    @Override
-    public Authenticate findByLogin(String login) {
-        return authenticateRepository.findByLogin(login);
-    }
-
-    @Override
-    public List<Authenticate> findByDeleteAndRoles(Boolean delete, String role) {
-        return authenticateRepository.findByDeleteAndRoles(delete, role);
-    }
-
-    @Override
-    public List<Authenticate> findByAcess(Boolean acess) {
-        return authenticateRepository.findByAcess(acess);
-    }
 }
