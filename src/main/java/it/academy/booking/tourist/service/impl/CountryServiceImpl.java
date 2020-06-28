@@ -1,7 +1,7 @@
 package it.academy.booking.tourist.service.impl;
 
+import it.academy.booking.tourist.model.Country;
 import it.academy.booking.tourist.repository.CountryRepository;
-import it.academy.booking.tourist.request.Country;
 import it.academy.booking.tourist.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,8 +42,4 @@ public class CountryServiceImpl implements CountryService {
         return countryRepository.saveAndFlush(country);
     }
 
-    @Override
-    public List<Country> findByDelete(Boolean delete) {
-        return countryRepository.findByDelete(delete);
-    }
 }

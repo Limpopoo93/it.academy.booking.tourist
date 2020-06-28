@@ -15,4 +15,5 @@ public interface CarService {
 
     Car saveAndFlush(Car car);
 
+    List<Car> findByAllCar(String town, String country);
 }

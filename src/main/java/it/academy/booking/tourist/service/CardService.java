@@ -15,4 +15,5 @@ public interface CardService {
 
     Card saveAndFlush(Card card);
 
+    Card findByAuthenticateId(Long id);
 }

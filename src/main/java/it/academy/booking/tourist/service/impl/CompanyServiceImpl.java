@@ -1,7 +1,7 @@
 package it.academy.booking.tourist.service.impl;
 
+import it.academy.booking.tourist.model.Company;
 import it.academy.booking.tourist.repository.CompanyRepository;
-import it.academy.booking.tourist.request.Company;
 import it.academy.booking.tourist.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,23 +42,4 @@ public class CompanyServiceImpl implements CompanyService {
         return companyRepository.saveAndFlush(company);
     }
 
-    @Override
-    public List<Company> findByDelete(Boolean delete) {
-        return companyRepository.findByDelete(delete);
-    }
-
-    @Override
-    public List<Company> findByTownId(Long id) {
-        return companyRepository.findByTownId(id);
-    }
-
-    @Override
-    public List<Company> findByAuthenticateIdAndDelete(Long id, Boolean delete) {
-        return companyRepository.findByAuthenticateIdAndDelete(id, delete);
-    }
-
-    @Override
-    public Company findByName(String nameCompany) {
-        return companyRepository.findByName(nameCompany);
-    }
 }

@@ -1,7 +1,7 @@
 package it.academy.booking.tourist.service.impl;
 
+import it.academy.booking.tourist.model.Car;
 import it.academy.booking.tourist.repository.CarRepository;
-import it.academy.booking.tourist.request.Car;
 import it.academy.booking.tourist.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,17 +43,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<Car> findByDeleteAndCompanyId(Boolean delete, Long id) {
-        return carRepository.findByDeleteAndCompanyId(delete, id);
+    public List<Car> findByAllCar(String town, String country) {
+        return carRepository.findByAllCar(town, country);
     }
 
-    @Override
-    public List<Car> findByCompanyId(Long id) {
-        return carRepository.findByCompanyId(id);
-    }
-
-    @Override
-    public List<Car> findByCompanyTownNameTownAndCompanyTownCountryNameCountry(String town, String country){
-        return carRepository.findByCompanyTownNameTownAndCompanyTownCountryNameCountry(town, country);
-    }
 }

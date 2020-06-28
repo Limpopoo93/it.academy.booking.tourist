@@ -1,7 +1,7 @@
 package it.academy.booking.tourist.service.impl;
 
+import it.academy.booking.tourist.model.Town;
 import it.academy.booking.tourist.repository.TownRepository;
-import it.academy.booking.tourist.request.Town;
 import it.academy.booking.tourist.service.TownService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,18 +42,4 @@ public class TownServiceImpl implements TownService {
         return townRepository.saveAndFlush(town);
     }
 
-    @Override
-    public List<Town> findByDelete(Boolean delete) {
-        return townRepository.findByDelete(delete);
-    }
-
-    @Override
-    public List<Town> findByNameTown(String town) {
-        return townRepository.findByNameTown(town);
-    }
-
-    @Override
-    public List<Town> findByCountryId(Long id) {
-        return townRepository.findByCountryId(id);
-    }
 }

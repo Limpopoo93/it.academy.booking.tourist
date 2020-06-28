@@ -1,7 +1,7 @@
 package it.academy.booking.tourist.service.impl;
 
+import it.academy.booking.tourist.model.Passport;
 import it.academy.booking.tourist.repository.PassportRepository;
-import it.academy.booking.tourist.request.Passport;
 import it.academy.booking.tourist.service.PassportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,10 +42,4 @@ public class PassportServiceImpl implements PassportService {
         return passportRepository.saveAndFlush(passport);
     }
 
-    @Override
-    public Passport findByAuthenticateId(Long id) {
-        return passportRepository.findByAuthenticateId(id);
-    }
-
 }
-

@@ -42,4 +42,14 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         return authenticateRepository.saveAndFlush(authenticate);
     }
 
+    @Override
+    public Authenticate findByLogin(String login) {
+        return authenticateRepository.findByLogin(login);
+    }
+
+    @Override
+    public Authenticate findByLoginAndPassword(String login, String password) {
+        return authenticateRepository.findByLoginAndPassword(login, password);
+    }
+
 }

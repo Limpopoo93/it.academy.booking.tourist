@@ -1,7 +1,7 @@
 package it.academy.booking.tourist.service.impl;
 
+import it.academy.booking.tourist.model.Role;
 import it.academy.booking.tourist.repository.RoleRepository;
-import it.academy.booking.tourist.request.Role;
 import it.academy.booking.tourist.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,4 +41,10 @@ public class RoleServiceImpl implements RoleService {
     public Role saveAndFlush(Role role) {
         return roleRepository.saveAndFlush(role);
     }
+
+    @Override
+    public Role findByRole(String role) {
+        return roleRepository.findByRole(role);
+    }
+
 }

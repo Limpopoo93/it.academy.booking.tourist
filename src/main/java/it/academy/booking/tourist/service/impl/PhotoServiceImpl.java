@@ -1,7 +1,7 @@
 package it.academy.booking.tourist.service.impl;
 
+import it.academy.booking.tourist.model.Photo;
 import it.academy.booking.tourist.repository.PhotoRepository;
-import it.academy.booking.tourist.request.Photo;
 import it.academy.booking.tourist.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

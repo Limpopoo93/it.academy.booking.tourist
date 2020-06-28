@@ -15,4 +15,7 @@ public interface AuthenticateService {
 
     Authenticate saveAndFlush(Authenticate authenticate);
 
+    Authenticate findByLogin(String login);
+
+    Authenticate findByLoginAndPassword(String login, String password);
 }

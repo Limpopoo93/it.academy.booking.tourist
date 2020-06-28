@@ -1,7 +1,7 @@
 package it.academy.booking.tourist.service.impl;
 
+import it.academy.booking.tourist.model.Message;
 import it.academy.booking.tourist.repository.MessageRepository;
-import it.academy.booking.tourist.request.Message;
 import it.academy.booking.tourist.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,8 +42,4 @@ public class MessageServiceImpl implements MessageService {
         return messageRepository.saveAndFlush(message);
     }
 
-    @Override
-    public List<Message> findByDelete(Boolean delete) {
-        return messageRepository.findByDelete(delete);
-    }
 }

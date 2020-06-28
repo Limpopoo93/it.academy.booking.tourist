@@ -1,7 +1,7 @@
 package it.academy.booking.tourist.service.impl;
 
+import it.academy.booking.tourist.model.CheckCar;
 import it.academy.booking.tourist.repository.CheckCarRepository;
-import it.academy.booking.tourist.request.CheckCar;
 import it.academy.booking.tourist.service.CheckCarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,17 +44,8 @@ public class CheckCarServiceImpl implements CheckCarService {
     }
 
     @Override
-    public List<CheckCar> findByAuthenticateId(Long id) {
-        return checkCarRepository.findByAuthenticateId(id);
+    public List<CheckCar> findByCheckCar(Date dateCheck, Date dateReturn, Long id) {
+        return checkCarRepository.findByCheckCar(dateCheck, dateReturn, id);
     }
 
-    @Override
-    public CheckCar findByCarId(Long id) {
-        return checkCarRepository.findByCarId(id);
-    }
-
-    @Override
-    public List<CheckCar> findByBusyDate(Date dateCheck, Date dateReturn){
-        return checkCarRepository.findByBusyDate(dateCheck, dateReturn);
-    }
 }
